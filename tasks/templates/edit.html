@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <section class="mt-5 text-center" style="color: gray;">
+        <h1>TodoList App</h1>
+        <p style="font-family: 'Lato', sans-serif;font-size: 20px;">Update the current task after editing it.</p>
+
+        <div class="my-5" style="font-size: 20px;">
+            <form action="" method="post" class="py-5">
+                {% csrf_token %}
+                {{ form }}
+                
+                <div class="text-center mt-5">
+                    <input type="submit" class="btn btn-lg btn-secondary rounded-0 py-2 large" value="Update to List">
+                    <input type="submit" class="btn btn-lg btn-secondary rounded-0 py-2 small" value="Update">
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}

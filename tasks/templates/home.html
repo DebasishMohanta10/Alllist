@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <section class="mt-5 text-center" style="color: gray;">
+        <h1>TodoList App</h1>
+        <p style="font-family: 'Lato', sans-serif;font-size: 20px;">Welcome {{request.user}} ! Add your daily tasks to our Task List</p>
+        <div class="text-center">
+            <a href="{% url 'logout' %}" class="btn btn-success rounded-0">Log out</a>
+        </div>
+
+        <div class="my-5" style="font-size: 20px;">
+            <form action="" method="post" class="d-flex align-items-center">
+                {% csrf_token %}
+                {{ form }}
+                <div class="pe-4"></div>
+                <input type="submit" class="btn btn-lg btn-secondary rounded-0 py-2 large" value="Add Todo to List">
+                <input type="submit" class="btn btn-lg btn-secondary rounded-0 py-2 small" value="Add">
+            </form>
+        </div>
+
+        <div style="text-align: left;">
+            {% for task in tasks %}
+                <div class="card my-4 shadow-lg">
+                    <div class="card-body d-flex align-items-center pb-1" style="color: gray; font-size: 20px;">
+                        <p class="pe-2">{{forloop.counter}}. </p>
+                        <p>{{task}}</p>
+                        <div class="ms-auto" style="display: flex; align-items: center; float: right;">
+                            <p class="ms-3"><a href="{% url 'edit_task' task.id %}" class="btn btn-success">Edit</a></p>
+                            <p class="ms-3"><a href="{% url 'delete_task' task.id %}" style="text-decoration: none;">❌</a></p>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No Tasks Added Yet.</p>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

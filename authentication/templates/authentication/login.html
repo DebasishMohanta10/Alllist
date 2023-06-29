@@ -1,0 +1,38 @@
+{% extends 'authentication/base.html' %}
+
+{% block content %}
+    <div class="mt-5">
+        <div class="row gx-5 gy-5">
+            <div class="col-md-6">
+                <div style="font-size: 25px;margin-top: 20px;">
+                    <h1 style="color: brown;" class="mb-5">Alllist</h1>
+                    <p style="color: gray;">- Organize your tasks and increase your productivity.</p>
+                    <p style="color: gray;">- Quick and easy way to access your to-do list and start adding tasks.</p>
+                    <p style="color: gray;">- See summary of your added task and Edit it any time</p>
+                    <p style="color: gray;">- Delete Task Whenever you want.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card p-5">
+                    <h1 class="text-center" style="color: brown;">Login</h1>
+                    <p class="text-center mb-5">
+                        Your account, just a login away!
+                    </p>
+                    <div class="card-body">
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            {{form}}
+                            <input type="submit" value="Login" class="form-control my-3 btn btn-primary">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <p class="text-center mt-3">Not having an account? You want to Create</p>
+        <div class="text-center">
+            <a href="{% url 'signup' %}" class="btn btn-success pb-2">Click Here to Register</a>
+        </div>
+    </div>
+{% endblock %}

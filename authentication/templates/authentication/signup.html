@@ -1,0 +1,22 @@
+{% extends 'authentication/base.html' %}
+
+{% block title %} | Login {% endblock %}
+
+{% block content %}
+    <div class="container mx-auto" style="width: 60%;">
+        <h1 class="text-center mb-4" style="font-family: 'Comfortaa', cursive;font-weight: 700;">Register</h1>
+        <p class="text-center mb-5">
+            Create an account to enjoy the Benefits!
+        </p>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form}}
+            <input type="submit" value="Signup" class="form-control my-3 btn btn-primary">
+        </form>
+        <hr>
+        <p class="text-center">Already have an account?</p>
+        <div class="text-center">
+            <a href="{% url 'login' %}" class="btn btn-success pb-2">Click Here to Login</a>
+        </div>
+    </div>
+{% endblock %}
